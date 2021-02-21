@@ -12,6 +12,8 @@ import { CalendarMonthComponent } from './_share/components/calendar/calendar-mo
 import { CalendarYearComponent } from './_share/components/calendar/calendar-year/calendar-year.component';
 import { MonthPipe } from './_share/pipes/month.pipe';
 import { DayOfWeekPipe } from './_share/pipes/day-of-week.pipe';
+import { DatepickerComponent } from './_share/components/datepicker/datepicker.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,12 +25,14 @@ import { DayOfWeekPipe } from './_share/pipes/day-of-week.pipe';
     CalendarMonthComponent,
     CalendarYearComponent,
     MonthPipe,
-    DayOfWeekPipe
+    DayOfWeekPipe,
+    DatepickerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

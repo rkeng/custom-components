@@ -1,9 +1,11 @@
 <div class="p-4">
+  <h3>Calendar Component</h3>
   <span>Selected Date: {{ selectedDate?.toDateString() }}</span>
-  <div class="w-80">
-    <rk-calendar
-      [date]="selectedDate"
-      (onSelect)="handleOnSelect($event)"
-    ></rk-calendar>
-  </div>
+  <rk-calendar
+    [date]="selectedDate"
+    (onSelect)="handleOnSelect($event)"
+  ></rk-calendar>
+  <h3>Datepicker Component</h3>
+  <span>Selected Date: {{ dateControl.value.toDateString() }}</span>
+  <rk-datepicker [formControl]="dateControl"></rk-datepicker>
 </div>

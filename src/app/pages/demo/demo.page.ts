@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'rk-demo',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class DemoPage implements OnInit {
 
   selectedDate: Date = new Date(1996, 11, 6);
+
+  dateControl = new FormControl(this.selectedDate);
 
   constructor() { }
 
