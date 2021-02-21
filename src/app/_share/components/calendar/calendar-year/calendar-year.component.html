@@ -1,0 +1,32 @@
+<rk-calendar-nav
+  [title]="start + '-' + (start + 9)"
+  [isMiddleBtnDisabled]="true"
+  (onLeftBtnClick)="handleLeftBtnClick()"
+  (onRightBtnClick)="handleRightBtnClick()"
+></rk-calendar-nav>
+<div class="grid grid-cols-4">
+  <div class="text-center py-1">
+    <button
+      class="calendar-btn"
+      disabled
+    >{{ start - 1 }}</button>
+  </div>
+  <div
+    *ngFor="let item of [].constructor(ENABLED_RANGE); let index = index"
+    class="text-center py-1"
+  >
+    <button
+      class="calendar-btn"
+      [ngClass]="{'selected': year === start + index}"
+      (click)="onSelectYear.emit(start + index)"
+    >
+      {{ start + index }}
+    </button>
+  </div>
+  <div class="text-center py-1">
+    <button
+      class="calendar-btn"
+      disabled
+    >{{ start + 10 }}</button>
+  </div>
+</div>

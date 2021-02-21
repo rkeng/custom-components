@@ -1,0 +1,54 @@
+<rk-calendar-nav
+  [title]="(month | month) + ' ' + year"
+  (onMiddleBtnClick)="switchToMonthView.emit()"
+  (onLeftBtnClick)="handleLeftBtnClick()"
+  (onRightBtnClick)="handleRightBtnClick()"
+></rk-calendar-nav>
+<div class="grid grid-cols-7">
+  <!-- day of week -->
+  <div
+    *ngFor="let item of [].constructor(NUM_DAYS_IN_WEEK); let index = index"
+    class="flex items-center justify-center font-bold h-12 py-1"
+  >
+    {{ index | dayOfWeek }}
+  </div>
+
+  <!-- days -->
+  <div
+    *ngFor="let day of prevList"
+    class="text-center py-1"
+  >
+    <button
+      class="calendar-btn sm"
+      disabled
+    >
+      {{ day }}
+    </button>
+  </div>
+  <div
+    *ngFor="let day of currList"
+    class="text-center py-1"
+  >
+    <button
+      class="calendar-btn sm"
+      [ngClass]="{
+        'today': isToday(day),
+        'selected': isSelected(day)
+      }"
+      (click)="onSelectDay.emit(day)"
+    >
+      {{ day }}
+    </button>
+  </div>
+  <div
+    *ngFor="let day of nextList"
+    class="text-center py-1"
+  >
+    <button
+      class="calendar-btn sm"
+      disabled
+    >
+      {{ day }}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="p-4">
+  <span>Selected Date: {{ selectedDate?.toDateString() }}</span>
+  <div class="w-80">
+    <rk-calendar
+      [date]="selectedDate"
+      (onSelect)="handleOnSelect($event)"
+    ></rk-calendar>
+  </div>
+</div>

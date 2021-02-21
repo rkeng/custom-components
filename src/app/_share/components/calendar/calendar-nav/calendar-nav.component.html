@@ -1,0 +1,19 @@
+<div class="grid grid-cols-7 py-1">
+  <button
+    class="mx-1"
+    (click)="this.onLeftBtnClick.emit()"
+  >
+    <fa-icon [icon]="leftBtn"></fa-icon>
+  </button>
+  <button
+    class="col-span-5 mx-1 font-bold"
+    [disabled]="isMiddleBtnDisabled"
+    (click)="this.onMiddleBtnClick.emit()"
+  >{{ title }}</button>
+  <button
+    class="mx-1"
+    (click)="this.onRightBtnClick.emit()"
+  >
+    <fa-icon [icon]="rightBtn"></fa-icon>
+  </button>
+</div>

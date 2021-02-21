@@ -1,0 +1,20 @@
+<rk-calendar-nav
+  [title]="currYear"
+  (onMiddleBtnClick)="switchToYearView.emit()"
+  (onLeftBtnClick)="handleLeftBtnClick()"
+  (onRightBtnClick)="handleRightBtnClick()"
+></rk-calendar-nav>
+<div class="grid grid-cols-4">
+  <div
+    *ngFor="let item of [].constructor(NUM_MONTHS); let index = index"
+    class="text-center py-1"
+  >
+    <button
+      class="calendar-btn"
+      [ngClass]="{'selected': month === index}"
+      (click)="onSelectMonth.emit(index)"
+    >
+      {{ index | month }}
+    </button>
+  </div>
+</div>

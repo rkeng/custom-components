@@ -1,0 +1,26 @@
+<div class="p-2">
+  <rk-calendar-year
+    *ngIf="currView === calView.Y"
+    [year]="year"
+    (onSelectYear)="handleSelectYear($event)"
+  ></rk-calendar-year>
+  <rk-calendar-month
+    *ngIf="currView === calView.M"
+    [year]="year"
+    [month]="month"
+    (onSelectMonth)="handleSelectMonth($event)"
+    (yearChanged)="updateYear($event)"
+    (switchToYearView)="switchView(calView.Y)"
+  ></rk-calendar-month>
+  <rk-calendar-day
+    *ngIf="currView === calView.D"
+    [year]="year"
+    [month]="month"
+    [day]="day"
+    [selectedDate]="date"
+    (onSelectDay)="handleSelectDay($event)"
+    (yearChanged)="updateYear($event)"
+    (monthChanged)="updateMonth($event)"
+    (switchToMonthView)="switchView(calView.M)"
+  ></rk-calendar-day>
+</div>

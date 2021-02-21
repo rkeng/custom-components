@@ -1,1 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+button {
+  @apply rounded;
+  @apply p-1;
+
+  &.calendar-btn {
+    @apply rounded-full;
+    @apply w-12;
+    @apply h-12;
+
+    &.sm {
+      @apply w-10;
+      @apply h-10;
+    }
+
+    &.today {
+      @apply font-bold;
+      color: #db3d44;
+    }
+
+    &.selected {
+      @apply text-white;
+      background-color: #db3d44;
+
+      &:hover {
+        @apply bg-red-700;
+      }
+    }
+
+    &:disabled {
+      color: #eeeeee;
+    }
+  }
+
+  &:hover {
+    @apply bg-gray-100;
+    &:disabled {
+      @apply bg-transparent;
+      @apply cursor-default;
+    }
+  }
+  &:focus {
+    @apply outline-none;
+  }
+}
