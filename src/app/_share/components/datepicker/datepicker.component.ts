@@ -1,6 +1,6 @@
-import { DatePipe, formatDate } from '@angular/common';
-import { Component, forwardRef, ViewChild } from '@angular/core';
-import { ControlValueAccessor, FormBuilder, FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { DatePipe } from '@angular/common';
+import { Component, forwardRef } from '@angular/core';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'rk-datepicker',
@@ -60,7 +60,11 @@ export class DatepickerComponent implements ControlValueAccessor {
   handleBlur() {
     this.showContainer = false;
     this.formatInput(this.input.value);
-    this.date = new Date(this.input.value);
+    if (this.input.value) {
+      this.date = new Date(this.input.value);
+    } else {
+      this.date = null;
+    }
     this.onChange(this.date);
     this.onTouched();
   }

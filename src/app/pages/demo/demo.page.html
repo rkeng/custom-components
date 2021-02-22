@@ -6,6 +6,6 @@
     (onSelect)="handleOnSelect($event)"
   ></rk-calendar>
   <h3>Datepicker Component</h3>
-  <span>Selected Date: {{ dateControl.value.toDateString() }}</span>
+  <span>Selected Date: {{ dateControl.value?.toDateString() }}</span>
   <rk-datepicker [formControl]="dateControl"></rk-datepicker>
 </div>
