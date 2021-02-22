@@ -1,6 +1,7 @@
 import { DatePipe } from '@angular/common';
-import { Component, forwardRef } from '@angular/core';
+import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'rk-datepicker',
@@ -17,10 +18,15 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/f
 })
 export class DatepickerComponent implements ControlValueAccessor {
 
+  @Input() placeholder = 'yyyy-MM-dd';
+
   input = new FormControl('');
   date: Date;
   disabled = false;
   showContainer = false;
+
+  faCalendarAlt = faCalendarAlt;
+  iconClass: string[] = [];
 
   constructor(
     private datePipe: DatePipe
@@ -55,10 +61,12 @@ export class DatepickerComponent implements ControlValueAccessor {
 
   handleFocus() {
     this.showContainer = true;
+    this.iconClass = ['text-blue-400'];
   }
 
   handleBlur() {
     this.showContainer = false;
+    this.iconClass = [];
     this.formatInput(this.input.value);
     if (this.input.value) {
       this.date = new Date(this.input.value);

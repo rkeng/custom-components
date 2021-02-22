@@ -1,11 +1,20 @@
 <div>
-  <input
-    type="text"
-    (input)="handleInput()"
-    (focus)="handleFocus()"
-    (blur)="handleBlur()"
-    [formControl]="input"
-  >
+  <div class="w-max border border-current pl-4 focus-within:ring-2">
+    <fa-icon
+      [icon]="faCalendarAlt"
+      [classes]="iconClass"
+      size="lg"
+    ></fa-icon>
+    <input
+      type="text"
+      [placeholder]="placeholder"
+      class="border-none focus:ring-0"
+      (input)="handleInput()"
+      (focus)="handleFocus()"
+      (blur)="handleBlur()"
+      [formControl]="input"
+    >
+  </div>
   <div
     *ngIf="showContainer"
     class="calendar-container"
