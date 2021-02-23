@@ -46,6 +46,14 @@
     [date]="selectedDate"
     (onSelect)="handleOnSelect($event)"
   ></rk-calendar>
+  <mat-tab-group mat-align-tabs="start">
+    <mat-tab label="datepicker.component.html">
+      <pre><code [highlight]="calednarHtmlCode"></code></pre>
+    </mat-tab>
+    <mat-tab label="datepicker.component.ts">
+      <pre><code [highlight]="calednarTsCode"></code></pre>
+    </mat-tab>
+  </mat-tab-group>
   <h3>Datepicker Component</h3>
   <span>Selected Date: {{ dateControl.value?.toDateString() }}</span>
   <rk-datepicker [formControl]="dateControl"></rk-datepicker>

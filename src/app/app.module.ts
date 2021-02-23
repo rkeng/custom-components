@@ -1,5 +1,6 @@
 // Angular
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 // Routing
@@ -8,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 // ngx-highlightjs
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+// Angular Material
+import { MatTabsModule } from '@angular/material/tabs';
 
 // Pages
 import { DemoPage } from './pages/demo/demo.page';
@@ -38,22 +41,18 @@ import { DayOfWeekPipe } from './_share/pipes/day-of-week.pipe';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FontAwesomeModule,
     ReactiveFormsModule,
     HighlightModule,
+    MatTabsModule,
   ],
   providers: [
     {
       provide: HIGHLIGHT_OPTIONS,
       useValue: {
-        coreLibraryLoader: () => import('highlight.js/lib/core'),
-        lineNumbersLoader: () => import('highlightjs-line-numbers.js'), // Optional, only if you want the line numbers
-        languages: {
-          typescript: () => import('highlight.js/lib/languages/typescript'),
-          css: () => import('highlight.js/lib/languages/scss'),
-          xml: () => import('highlight.js/lib/languages/xml')
-        }
+        fullLibraryLoader: () => import('highlight.js'),
       }
     }
   ],

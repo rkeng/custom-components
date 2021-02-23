@@ -15,6 +15,16 @@ export class DemoPage implements OnInit {
 
   faGithub = faGithub;
 
+  calednarHtmlCode = `<rk-calendar
+  [date]="selectedDate"
+  (onSelect)="handleOnSelect($event)"
+></rk-calendar>`;
+
+  calednarTsCode = `selectedDate: Date = new Date(1996, 11, 6);
+handleOnSelect(date) {
+  this.selectedDate = date;
+}`;
+
   constructor() { }
 
   ngOnInit(): void {
