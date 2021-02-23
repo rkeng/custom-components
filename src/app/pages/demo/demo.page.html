@@ -1,3 +1,44 @@
+<nav class="bg-gray-800">
+  <div class="mx-auto px-2 sm:px-6">
+    <div class="relative flex items-center justify-between h-16">
+      <div class="flex-1 flex items-center justify-start">
+        <div class="flex-shrink-0 flex items-center">
+          <a
+            href="https://ryankeng.com"
+            title="Ryan Keng"
+            class="px-3 py-2"
+          >
+            <img
+              class="h-8 w-auto"
+              src="https://ryankeng.com/img/rk-logo-light.svg"
+              alt="Ryan Keng"
+            >
+          </a>
+          <div class="sm:ml-2 text-white">
+            Custom Components
+          </div>
+        </div>
+      </div>
+      <div class="absolute inset-y-0 right-0 flex items-center sm:static sm:inset-auto sm:ml-6">
+        <div>
+          <div class="flex space-x-4">
+            <a
+              href="https://github.com/rkeng/custom-datepicker"
+              target="_blank"
+              title="Visit GitHub repo"
+              class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
+            >
+              <fa-icon
+                [icon]="faGithub"
+                size="2x"
+              ></fa-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
 <div class="p-4">
   <h3>Calendar Component</h3>
   <span>Selected Date: {{ selectedDate?.toDateString() }}</span>
