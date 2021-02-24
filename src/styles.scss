@@ -4,6 +4,18 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~highlight.js/styles/github.css";
 
+// Override Angular Material CSS
+
+.mat-expansion-panel-body {
+  overflow-x: auto;
+}
+
+.mat-cell:not(:last-child) {
+  padding-right: 1rem !important;
+}
+
+// Custom style definitions
+
 button {
   @apply rounded;
   @apply p-1;
@@ -47,4 +59,8 @@ button {
   &:focus {
     @apply outline-none;
   }
+}
+
+.rk-card {
+  @apply mb-4;
 }

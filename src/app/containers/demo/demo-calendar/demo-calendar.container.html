@@ -1,0 +1,112 @@
+<mat-card class="rk-card bg-gray-50">
+  <mat-card-header>
+    <mat-card-title>Calendar Component</mat-card-title>
+    <mat-card-subtitle>
+      <pre>rk-calendar</pre>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="flex justify-center py-4">
+      <div class="bg-white">
+        <span>Selected Date: {{ selectedDate?.toDateString() }}</span>
+        <rk-calendar
+          [date]="selectedDate"
+          (onSelect)="handleOnSelect($event)"
+        ></rk-calendar>
+      </div>
+    </div>
+
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Properties
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <table
+          mat-table
+          [dataSource]="dataSource"
+          class="w-full"
+        >
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+            >Name</th>
+            <td
+              mat-cell
+              *matCellDef="let element"
+            >
+              <pre>{{element.name}}</pre>
+            </td>
+          </ng-container>
+
+          <!-- Type Column -->
+          <ng-container matColumnDef="type">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+            >Type</th>
+            <td
+              mat-cell
+              *matCellDef="let element"
+            >
+              <pre>{{element.type}}</pre>
+            </td>
+          </ng-container>
+
+          <!-- Default Value Column -->
+          <ng-container matColumnDef="default">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+            >Default Value</th>
+            <td
+              mat-cell
+              *matCellDef="let element"
+            >
+              <pre>{{element.default}}</pre>
+            </td>
+          </ng-container>
+
+          <!-- Description Column -->
+          <ng-container matColumnDef="description">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+            >Description</th>
+            <td
+              mat-cell
+              *matCellDef="let element"
+            > {{element.description}} </td>
+          </ng-container>
+
+          <tr
+            mat-header-row
+            *matHeaderRowDef="displayedColumns"
+          ></tr>
+          <tr
+            mat-row
+            *matRowDef="let row; columns: displayedColumns;"
+          ></tr>
+        </table>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Usage
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-tab-group animationDuration="0ms">
+          <mat-tab label="HTML">
+            <pre><code [highlight]="htmlCode"></code></pre>
+          </mat-tab>
+          <mat-tab label="TS">
+            <pre><code [highlight]="tsCode"></code></pre>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card-content>
+</mat-card>
