@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component, forwardRef, Input } from '@angular/core';
+import { Component, ElementRef, forwardRef, Input, ViewChild } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
 
@@ -20,6 +20,8 @@ export class DatepickerComponent implements ControlValueAccessor {
 
   @Input() placeholder = 'yyyy-MM-dd';
 
+  @ViewChild('inputEl') inputElement: ElementRef;
+
   input = new FormControl('');
   date: Date;
   disabled = false;
@@ -37,10 +39,13 @@ export class DatepickerComponent implements ControlValueAccessor {
   onTouched = () => { };
 
   writeValue(date: Date): void {
-    this.showContainer = false;
     this.date = date;
     this.formatInput(date);
     this.onChange(date);
+    // close calendar with subtle delay
+    setTimeout(() => {
+      this.showContainer = false;
+    }, 100);
   }
 
   registerOnChange(fn: any): void {
@@ -75,6 +80,12 @@ export class DatepickerComponent implements ControlValueAccessor {
     }
     this.onChange(this.date);
     this.onTouched();
+  }
+
+  toggleContainer() {
+    if (!this.showContainer) {
+      this.inputElement.nativeElement.focus();
+    }
   }
 
   private formatInput(date: Date) {
