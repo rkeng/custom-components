@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'custom-datepicker'`, () => {
+  it(`should have as title 'custom-components'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('custom-datepicker');
+    expect(app.title).toEqual('custom-components');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('custom-datepicker app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('custom-components app is running!');
   });
 });
