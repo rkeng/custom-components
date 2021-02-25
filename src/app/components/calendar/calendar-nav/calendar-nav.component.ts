@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -6,7 +6,7 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
   templateUrl: './calendar-nav.component.html',
   styleUrls: ['./calendar-nav.component.scss']
 })
-export class CalendarNavComponent implements OnInit {
+export class CalendarNavComponent {
 
   @Input() title: string;
   @Input() isMiddleBtnDisabled: boolean;
@@ -19,8 +19,5 @@ export class CalendarNavComponent implements OnInit {
   rightBtn = faChevronRight;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

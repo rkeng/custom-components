@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -6,13 +6,10 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './footer.container.html',
   styleUrls: ['./footer.container.scss']
 })
-export class FooterContainer implements OnInit {
+export class FooterContainer {
 
   faHeart = faHeart;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

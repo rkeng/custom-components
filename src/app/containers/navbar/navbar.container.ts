@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
 @Component({
@@ -6,13 +6,10 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
   templateUrl: './navbar.container.html',
   styleUrls: ['./navbar.container.scss']
 })
-export class NavbarContainer implements OnInit {
+export class NavbarContainer {
 
   faGithub = faGithub;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

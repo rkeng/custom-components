@@ -1,11 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ApiProperty } from 'src/app/models/api-property.model';
 
-export interface ApiProperty {
-  name: string;
-  type: string;
-  default: string;
-  description: string;
-}
 
 const DATA: ApiProperty[] = [
   { type: 'Date', name: 'date', default: 'null', description: 'Date to be selected on initialization.' },
@@ -17,7 +12,7 @@ const DATA: ApiProperty[] = [
   templateUrl: './demo-calendar.container.html',
   styleUrls: ['./demo-calendar.container.scss']
 })
-export class DemoCalendarContainer implements OnInit {
+export class DemoCalendarContainer {
 
   selectedDate: Date = new Date(2021, 0, 1);
 
@@ -30,15 +25,12 @@ export class DemoCalendarContainer implements OnInit {
   (onSelect)="handleOnSelect($event)"
 ></rk-calendar>`;
 
-  tsCode = `selectedDate: Date = new Date(1996, 11, 6);
+  tsCode = `selectedDate: Date = new Date(2021, 0, 1);
 handleOnSelect(date: Date) {
   this.selectedDate = date;
 }`;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
   handleOnSelect(date: Date) {
     this.selectedDate = date;
