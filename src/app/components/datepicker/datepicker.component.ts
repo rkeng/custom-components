@@ -67,6 +67,7 @@ export class DatepickerComponent implements ControlValueAccessor {
   handleFocus() {
     this.showContainer = true;
     this.iconClass = ['text-blue-400'];
+    this.inputElement.nativeElement.select();
   }
 
   handleBlur() {
