@@ -1,27 +1,83 @@
-# CustomDatepicker
+# Custom Components
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.4.
+A Calendar component and a Datepicker component built from scratch in Angular.
 
-## Development server
+[Demo](https://ryankeng.com/custom-components)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Environment
 
-## Code scaffolding
+### Prerequisites
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Install [Node.js](https://nodejs.org/en/about/releases/).
 
-## Build
+Install the Angular CLI.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```
+npm install -g @angular/cli
+```
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Installation
 
-## Running end-to-end tests
+```
+git clone https://github.com/rkeng/custom-components.git
+npm install
+ng serve --open
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Components
 
-## Further help
+### `rk-calendar`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+#### Properties
+
+Name | Type | Default Value | Description
+--- | --- | --- | ---
+`date` | `Date` | `null` | Date to be selected on initialization.
+`onSelect` | `EventEmitter<Date>` | | Emits a Date object when a date is selected.
+
+#### Usage
+
+##### HTML
+
+```html
+<rk-calendar
+  [date]="selectedDate"
+  (onSelect)="handleOnSelect($event)"
+></rk-calendar>
+```
+
+##### TypeScript
+
+```ts
+selectedDate: Date = new Date(2021, 0, 1);
+handleOnSelect(date: Date) {
+  this.selectedDate = date;
+}
+```
+
+### `rk-datepicker`
+
+#### Properties
+
+Name | Type | Default Value | Description
+--- | --- | --- | ---
+`placeholder` | `string` | `yyyy-MM-dd` | Input placeholder text
+`formControl` | `FormControl` | | Inherited from ControlValueAccessor. Assigns a reference to the FormControl instance.
+
+#### Usage
+
+##### HTML
+
+```html
+<rk-datepicker
+  [formControl]="dateControl"
+  placeholder="Select a date"
+></rk-datepicker>
+```
+
+##### TypeScript
+
+```ts
+dateControl = new FormControl(new Date(2021, 0, 1));
+```
